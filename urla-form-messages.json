@@ -1,0 +1,698 @@
+[
+  {
+    "beginRendering": {
+      "surfaceId": "urla-form",
+      "root": "form-root",
+      "styles": {
+        "primaryColor": "#0052CC",
+        "font": "Atlassian Sans, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+      }
+    }
+  },
+  {
+    "surfaceUpdate": {
+      "surfaceId": "urla-form",
+      "components": [
+        {
+          "id": "form-root",
+          "component": {
+            "Column": {
+              "children": { "explicitList": ["form-header", "form-tabs"] },
+              "alignment": "stretch"
+            }
+          }
+        },
+        {
+          "id": "form-header",
+          "component": {
+            "Card": { "child": "header-content" }
+          }
+        },
+        {
+          "id": "header-content",
+          "component": {
+            "Column": {
+              "children": { "explicitList": ["header-title", "header-subtitle", "header-divider", "header-info"] },
+              "alignment": "center"
+            }
+          }
+        },
+        {
+          "id": "header-title",
+          "component": {
+            "Text": {
+              "usageHint": "h1",
+              "text": { "literalString": "Uniform Residential Appraisal Report" }
+            }
+          }
+        },
+        {
+          "id": "header-subtitle",
+          "component": {
+            "Text": {
+              "usageHint": "body",
+              "text": { "literalString": "Fannie Mae Form 1004 / Freddie Mac Form 70" }
+            }
+          }
+        },
+        {
+          "id": "header-divider",
+          "component": { "Divider": {} }
+        },
+        {
+          "id": "header-info",
+          "component": {
+            "Text": {
+              "usageHint": "caption",
+              "text": { "literalString": "This form is designed to report an appraisal of a one-unit property or a one-unit property with an accessory unit." }
+            }
+          }
+        },
+        {
+          "id": "form-tabs",
+          "component": {
+            "Tabs": {
+              "tabItems": [
+                { "title": { "literalString": "1. Subject" }, "child": "section-1" },
+                { "title": { "literalString": "2. Contract" }, "child": "section-2" },
+                { "title": { "literalString": "3. Neighborhood" }, "child": "section-3" },
+                { "title": { "literalString": "4. Site" }, "child": "section-4" },
+                { "title": { "literalString": "5. Improvements" }, "child": "section-5" },
+                { "title": { "literalString": "6. Sales Comparison" }, "child": "section-6" },
+                { "title": { "literalString": "7. Reconciliation" }, "child": "section-7" },
+                { "title": { "literalString": "8. Appraiser" }, "child": "section-8" }
+              ]
+            }
+          }
+        },
+
+        { "id": "section-1", "component": { "Column": { "children": { "explicitList": ["s1-card"] }, "alignment": "stretch" } } },
+        { "id": "s1-card", "component": { "Card": { "child": "s1-content" } } },
+        { "id": "s1-content", "component": { "Column": { "children": { "explicitList": ["s1-title", "s1a-title", "s1a-content", "s1-divider-1", "s1b-title", "s1b-content", "s1-divider-2", "s1c-title", "s1c-content"] }, "alignment": "stretch" } } },
+        { "id": "s1-title", "component": { "Text": { "usageHint": "h2", "text": { "literalString": "Subject" } } } },
+
+        { "id": "s1a-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Property Identification" } } } },
+        { "id": "s1a-content", "component": { "Column": { "children": { "explicitList": ["s1a-row1", "s1a-row2", "s1a-row3", "s1a-row4"] }, "alignment": "stretch" } } },
+        { "id": "s1a-row1", "component": { "Row": { "children": { "explicitList": ["field-property-address", "field-unit-num"] }, "alignment": "start" } } },
+        { "id": "field-property-address", "weight": 3, "component": { "TextField": { "label": { "literalString": "Property Address *" }, "text": { "path": "/subject/propertyAddress" }, "required": true } } },
+        { "id": "field-unit-num", "weight": 1, "component": { "TextField": { "label": { "literalString": "Unit #" }, "text": { "path": "/subject/unitNumber" } } } },
+
+        { "id": "s1a-row2", "component": { "Row": { "children": { "explicitList": ["field-city", "field-state", "field-zip", "field-county"] }, "alignment": "start" } } },
+        { "id": "field-city", "weight": 2, "component": { "TextField": { "label": { "literalString": "City *" }, "text": { "path": "/subject/city" }, "required": true } } },
+        { "id": "field-state", "weight": 1, "component": { "TextField": { "label": { "literalString": "State *" }, "text": { "path": "/subject/state" }, "required": true } } },
+        { "id": "field-zip", "weight": 1, "component": { "TextField": { "label": { "literalString": "ZIP Code *" }, "text": { "path": "/subject/zipCode" }, "required": true } } },
+        { "id": "field-county", "weight": 1, "component": { "TextField": { "label": { "literalString": "County *" }, "text": { "path": "/subject/county" }, "required": true } } },
+
+        { "id": "s1a-row3", "component": { "Row": { "children": { "explicitList": ["field-legal-desc", "field-assessor-parcel"] }, "alignment": "start" } } },
+        { "id": "field-legal-desc", "weight": 2, "component": { "TextField": { "label": { "literalString": "Legal Description" }, "text": { "path": "/subject/legalDescription" } } } },
+        { "id": "field-assessor-parcel", "weight": 1, "component": { "TextField": { "label": { "literalString": "Assessor's Parcel #" }, "text": { "path": "/subject/assessorParcel" } } } },
+
+        { "id": "s1a-row4", "component": { "Row": { "children": { "explicitList": ["field-tax-year", "field-re-taxes", "field-special-assessments"] }, "alignment": "start" } } },
+        { "id": "field-tax-year", "weight": 1, "component": { "TextField": { "label": { "literalString": "Tax Year" }, "text": { "path": "/subject/taxYear" } } } },
+        { "id": "field-re-taxes", "weight": 1, "component": { "TextField": { "label": { "literalString": "R.E. Taxes ($)" }, "text": { "path": "/subject/realEstateTaxes" }, "type": "number" } } },
+        { "id": "field-special-assessments", "weight": 1, "component": { "TextField": { "label": { "literalString": "Special Assessments ($)" }, "text": { "path": "/subject/specialAssessments" }, "type": "number" } } },
+
+        { "id": "s1-divider-1", "component": { "Divider": {} } },
+
+        { "id": "s1b-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Ownership & Occupancy" } } } },
+        { "id": "s1b-content", "component": { "Column": { "children": { "explicitList": ["s1b-row1", "s1b-row2", "s1b-row3"] }, "alignment": "stretch" } } },
+        { "id": "s1b-row1", "component": { "Row": { "children": { "explicitList": ["field-borrower", "field-owner-public-record"] }, "alignment": "start" } } },
+        { "id": "field-borrower", "weight": 1, "component": { "TextField": { "label": { "literalString": "Borrower *" }, "text": { "path": "/subject/borrower" }, "required": true } } },
+        { "id": "field-owner-public-record", "weight": 1, "component": { "TextField": { "label": { "literalString": "Owner of Public Record" }, "text": { "path": "/subject/ownerPublicRecord" } } } },
+
+        { "id": "s1b-row2", "component": { "Row": { "children": { "explicitList": ["field-occupant", "field-property-rights"] }, "alignment": "start" } } },
+        { "id": "field-occupant", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/subject/occupant" }, "options": [ { "label": { "literalString": "Owner" }, "value": "owner" }, { "label": { "literalString": "Tenant" }, "value": "tenant" }, { "label": { "literalString": "Vacant" }, "value": "vacant" } ] } } },
+        { "id": "field-property-rights", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/subject/propertyRights" }, "options": [ { "label": { "literalString": "Fee Simple" }, "value": "fee_simple" }, { "label": { "literalString": "Leasehold" }, "value": "leasehold" }, { "label": { "literalString": "Other" }, "value": "other" } ] } } },
+
+        { "id": "s1b-row3", "component": { "Row": { "children": { "explicitList": ["field-assignment-type", "field-is-pud", "field-hoa-fee"] }, "alignment": "start" } } },
+        { "id": "field-assignment-type", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/subject/assignmentType" }, "options": [ { "label": { "literalString": "Purchase Transaction" }, "value": "purchase" }, { "label": { "literalString": "Refinance Transaction" }, "value": "refinance" }, { "label": { "literalString": "Other" }, "value": "other" } ] } } },
+        { "id": "field-is-pud", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Is this a PUD (Planned Unit Development)?" }, "value": { "path": "/subject/isPUD" } } } },
+        { "id": "field-hoa-fee", "weight": 1, "component": { "TextField": { "label": { "literalString": "HOA Fee ($/month)" }, "text": { "path": "/subject/hoaFee" }, "type": "number" } } },
+
+        { "id": "s1-divider-2", "component": { "Divider": {} } },
+
+        { "id": "s1c-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Lender/Client Information" } } } },
+        { "id": "s1c-content", "component": { "Column": { "children": { "explicitList": ["s1c-row1", "s1c-row2"] }, "alignment": "stretch" } } },
+        { "id": "s1c-row1", "component": { "Row": { "children": { "explicitList": ["field-lender-name", "field-lender-address"] }, "alignment": "start" } } },
+        { "id": "field-lender-name", "weight": 1, "component": { "TextField": { "label": { "literalString": "Lender/Client Name *" }, "text": { "path": "/subject/lenderName" }, "required": true } } },
+        { "id": "field-lender-address", "weight": 2, "component": { "TextField": { "label": { "literalString": "Lender/Client Address" }, "text": { "path": "/subject/lenderAddress" } } } },
+
+        { "id": "s1c-row2", "component": { "Row": { "children": { "explicitList": ["field-map-reference", "field-census-tract", "field-neighborhood-name"] }, "alignment": "start" } } },
+        { "id": "field-map-reference", "weight": 1, "component": { "TextField": { "label": { "literalString": "Map Reference" }, "text": { "path": "/subject/mapReference" } } } },
+        { "id": "field-census-tract", "weight": 1, "component": { "TextField": { "label": { "literalString": "Census Tract" }, "text": { "path": "/subject/censusTract" } } } },
+        { "id": "field-neighborhood-name", "weight": 1, "component": { "TextField": { "label": { "literalString": "Neighborhood Name" }, "text": { "path": "/subject/neighborhoodName" } } } },
+
+
+        { "id": "section-2", "component": { "Column": { "children": { "explicitList": ["s2-card"] }, "alignment": "stretch" } } },
+        { "id": "s2-card", "component": { "Card": { "child": "s2-content" } } },
+        { "id": "s2-content", "component": { "Column": { "children": { "explicitList": ["s2-title", "s2-desc", "s2a-content", "s2-divider-1", "s2b-title", "s2b-content"] }, "alignment": "stretch" } } },
+        { "id": "s2-title", "component": { "Text": { "usageHint": "h2", "text": { "literalString": "Contract" } } } },
+        { "id": "s2-desc", "component": { "Text": { "usageHint": "body", "text": { "literalString": "Analyze the contract for sale for the subject purchase transaction." } } } },
+
+        { "id": "s2a-content", "component": { "Column": { "children": { "explicitList": ["s2a-row1", "s2a-row2", "s2a-row3", "s2a-row4"] }, "alignment": "stretch" } } },
+        { "id": "s2a-row1", "component": { "Row": { "children": { "explicitList": ["field-contract-price", "field-contract-date"] }, "alignment": "start" } } },
+        { "id": "field-contract-price", "weight": 1, "component": { "TextField": { "label": { "literalString": "Contract Price ($)" }, "text": { "path": "/contract/contractPrice" }, "type": "number" } } },
+        { "id": "field-contract-date", "weight": 1, "component": { "DateTimeInput": { "label": { "literalString": "Date of Contract" }, "value": { "path": "/contract/contractDate" }, "enableDate": true, "enableTime": false } } },
+
+        { "id": "s2a-row2", "component": { "Row": { "children": { "explicitList": ["field-seller-owner", "field-property-seller-relationship"] }, "alignment": "start" } } },
+        { "id": "field-seller-owner", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Is the property seller the owner of public record?" }, "value": { "path": "/contract/sellerIsOwner" } } } },
+        { "id": "field-property-seller-relationship", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Is there any relationship between parties?" }, "value": { "path": "/contract/partyRelationship" } } } },
+
+        { "id": "s2a-row3", "component": { "Row": { "children": { "explicitList": ["field-seller-concessions", "field-concession-amount"] }, "alignment": "start" } } },
+        { "id": "field-seller-concessions", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Are there any seller concessions?" }, "value": { "path": "/contract/hasSellerConcessions" } } } },
+        { "id": "field-concession-amount", "weight": 1, "component": { "TextField": { "label": { "literalString": "Concession Amount ($)" }, "text": { "path": "/contract/concessionAmount" }, "type": "number" } } },
+
+        { "id": "s2a-row4", "component": { "Row": { "children": { "explicitList": ["field-financing-type", "field-down-payment-source"] }, "alignment": "start" } } },
+        { "id": "field-financing-type", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/contract/financingType" }, "options": [ { "label": { "literalString": "Conventional" }, "value": "conventional" }, { "label": { "literalString": "FHA" }, "value": "fha" }, { "label": { "literalString": "VA" }, "value": "va" }, { "label": { "literalString": "Cash" }, "value": "cash" } ] } } },
+        { "id": "field-down-payment-source", "weight": 1, "component": { "TextField": { "label": { "literalString": "Down Payment Source" }, "text": { "path": "/contract/downPaymentSource" } } } },
+
+        { "id": "s2-divider-1", "component": { "Divider": {} } },
+
+        { "id": "s2b-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Prior Sale/Transfer History" } } } },
+        { "id": "s2b-content", "component": { "Column": { "children": { "explicitList": ["s2b-row1", "s2b-row2"] }, "alignment": "stretch" } } },
+        { "id": "s2b-row1", "component": { "Row": { "children": { "explicitList": ["field-prior-sale-date", "field-prior-sale-price"] }, "alignment": "start" } } },
+        { "id": "field-prior-sale-date", "weight": 1, "component": { "DateTimeInput": { "label": { "literalString": "Prior Sale Date (within 3 years)" }, "value": { "path": "/contract/priorSaleDate" }, "enableDate": true, "enableTime": false } } },
+        { "id": "field-prior-sale-price", "weight": 1, "component": { "TextField": { "label": { "literalString": "Prior Sale Price ($)" }, "text": { "path": "/contract/priorSalePrice" }, "type": "number" } } },
+
+        { "id": "s2b-row2", "component": { "Row": { "children": { "explicitList": ["field-currently-offered", "field-days-on-market"] }, "alignment": "start" } } },
+        { "id": "field-currently-offered", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Is property currently offered for sale?" }, "value": { "path": "/contract/currentlyOffered" } } } },
+        { "id": "field-days-on-market", "weight": 1, "component": { "TextField": { "label": { "literalString": "Days on Market" }, "text": { "path": "/contract/daysOnMarket" }, "type": "number" } } },
+
+
+        { "id": "section-3", "component": { "Column": { "children": { "explicitList": ["s3-card"] }, "alignment": "stretch" } } },
+        { "id": "s3-card", "component": { "Card": { "child": "s3-content" } } },
+        { "id": "s3-content", "component": { "Column": { "children": { "explicitList": ["s3-title", "s3-desc", "s3a-title", "s3a-content", "s3-divider-1", "s3b-title", "s3b-content", "s3-divider-2", "s3c-title", "s3c-content"] }, "alignment": "stretch" } } },
+        { "id": "s3-title", "component": { "Text": { "usageHint": "h2", "text": { "literalString": "Neighborhood" } } } },
+        { "id": "s3-desc", "component": { "Text": { "usageHint": "body", "text": { "literalString": "Describe the neighborhood characteristics and market conditions." } } } },
+
+        { "id": "s3a-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Neighborhood Characteristics" } } } },
+        { "id": "s3a-content", "component": { "Column": { "children": { "explicitList": ["s3a-row1", "s3a-row2", "s3a-row3"] }, "alignment": "stretch" } } },
+        { "id": "s3a-row1", "component": { "Row": { "children": { "explicitList": ["field-location", "field-built-up", "field-growth"] }, "alignment": "start" } } },
+        { "id": "field-location", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/neighborhood/location" }, "options": [ { "label": { "literalString": "Urban" }, "value": "urban" }, { "label": { "literalString": "Suburban" }, "value": "suburban" }, { "label": { "literalString": "Rural" }, "value": "rural" } ] } } },
+        { "id": "field-built-up", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/neighborhood/builtUp" }, "options": [ { "label": { "literalString": "Over 75%" }, "value": "over_75" }, { "label": { "literalString": "25-75%" }, "value": "25_75" }, { "label": { "literalString": "Under 25%" }, "value": "under_25" } ] } } },
+        { "id": "field-growth", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/neighborhood/growth" }, "options": [ { "label": { "literalString": "Rapid" }, "value": "rapid" }, { "label": { "literalString": "Stable" }, "value": "stable" }, { "label": { "literalString": "Slow" }, "value": "slow" } ] } } },
+
+        { "id": "s3a-row2", "component": { "Row": { "children": { "explicitList": ["field-neighborhood-boundaries"] }, "alignment": "start" } } },
+        { "id": "field-neighborhood-boundaries", "weight": 1, "component": { "TextField": { "label": { "literalString": "Neighborhood Boundaries" }, "text": { "path": "/neighborhood/boundaries" } } } },
+
+        { "id": "s3a-row3", "component": { "Row": { "children": { "explicitList": ["field-neighborhood-description"] }, "alignment": "start" } } },
+        { "id": "field-neighborhood-description", "weight": 1, "component": { "TextField": { "label": { "literalString": "Neighborhood Description" }, "text": { "path": "/neighborhood/description" } } } },
+
+        { "id": "s3-divider-1", "component": { "Divider": {} } },
+
+        { "id": "s3b-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "One-Unit Housing Trends" } } } },
+        { "id": "s3b-content", "component": { "Column": { "children": { "explicitList": ["s3b-row1", "s3b-row2", "s3b-row3"] }, "alignment": "stretch" } } },
+        { "id": "s3b-row1", "component": { "Row": { "children": { "explicitList": ["field-property-values", "field-demand-supply", "field-marketing-time"] }, "alignment": "start" } } },
+        { "id": "field-property-values", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/neighborhood/propertyValues" }, "options": [ { "label": { "literalString": "Increasing" }, "value": "increasing" }, { "label": { "literalString": "Stable" }, "value": "stable" }, { "label": { "literalString": "Declining" }, "value": "declining" } ] } } },
+        { "id": "field-demand-supply", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/neighborhood/demandSupply" }, "options": [ { "label": { "literalString": "Shortage" }, "value": "shortage" }, { "label": { "literalString": "In Balance" }, "value": "in_balance" }, { "label": { "literalString": "Over Supply" }, "value": "over_supply" } ] } } },
+        { "id": "field-marketing-time", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/neighborhood/marketingTime" }, "options": [ { "label": { "literalString": "Under 3 Months" }, "value": "under_3" }, { "label": { "literalString": "3-6 Months" }, "value": "3_6" }, { "label": { "literalString": "Over 6 Months" }, "value": "over_6" } ] } } },
+
+        { "id": "s3b-row2", "component": { "Row": { "children": { "explicitList": ["field-price-low", "field-price-high", "field-price-predominant"] }, "alignment": "start" } } },
+        { "id": "field-price-low", "weight": 1, "component": { "TextField": { "label": { "literalString": "One-Unit Price Range - Low ($)" }, "text": { "path": "/neighborhood/priceLow" }, "type": "number" } } },
+        { "id": "field-price-high", "weight": 1, "component": { "TextField": { "label": { "literalString": "One-Unit Price Range - High ($)" }, "text": { "path": "/neighborhood/priceHigh" }, "type": "number" } } },
+        { "id": "field-price-predominant", "weight": 1, "component": { "TextField": { "label": { "literalString": "Predominant Price ($)" }, "text": { "path": "/neighborhood/pricePredominant" }, "type": "number" } } },
+
+        { "id": "s3b-row3", "component": { "Row": { "children": { "explicitList": ["field-age-low", "field-age-high", "field-age-predominant"] }, "alignment": "start" } } },
+        { "id": "field-age-low", "weight": 1, "component": { "TextField": { "label": { "literalString": "One-Unit Age Range - Low (yrs)" }, "text": { "path": "/neighborhood/ageLow" }, "type": "number" } } },
+        { "id": "field-age-high", "weight": 1, "component": { "TextField": { "label": { "literalString": "One-Unit Age Range - High (yrs)" }, "text": { "path": "/neighborhood/ageHigh" }, "type": "number" } } },
+        { "id": "field-age-predominant", "weight": 1, "component": { "TextField": { "label": { "literalString": "Predominant Age (yrs)" }, "text": { "path": "/neighborhood/agePredominant" }, "type": "number" } } },
+
+        { "id": "s3-divider-2", "component": { "Divider": {} } },
+
+        { "id": "s3c-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Present Land Use" } } } },
+        { "id": "s3c-content", "component": { "Column": { "children": { "explicitList": ["s3c-row1"] }, "alignment": "stretch" } } },
+        { "id": "s3c-row1", "component": { "Row": { "children": { "explicitList": ["field-one-unit-pct", "field-two-four-unit-pct", "field-multi-family-pct", "field-commercial-pct", "field-other-pct"] }, "alignment": "start" } } },
+        { "id": "field-one-unit-pct", "weight": 1, "component": { "TextField": { "label": { "literalString": "One-Unit (%)" }, "text": { "path": "/neighborhood/oneUnitPct" }, "type": "number" } } },
+        { "id": "field-two-four-unit-pct", "weight": 1, "component": { "TextField": { "label": { "literalString": "2-4 Unit (%)" }, "text": { "path": "/neighborhood/twoFourUnitPct" }, "type": "number" } } },
+        { "id": "field-multi-family-pct", "weight": 1, "component": { "TextField": { "label": { "literalString": "Multi-Family (%)" }, "text": { "path": "/neighborhood/multiFamilyPct" }, "type": "number" } } },
+        { "id": "field-commercial-pct", "weight": 1, "component": { "TextField": { "label": { "literalString": "Commercial (%)" }, "text": { "path": "/neighborhood/commercialPct" }, "type": "number" } } },
+        { "id": "field-other-pct", "weight": 1, "component": { "TextField": { "label": { "literalString": "Other (%)" }, "text": { "path": "/neighborhood/otherPct" }, "type": "number" } } },
+
+
+        { "id": "section-4", "component": { "Column": { "children": { "explicitList": ["s4-card"] }, "alignment": "stretch" } } },
+        { "id": "s4-card", "component": { "Card": { "child": "s4-content" } } },
+        { "id": "s4-content", "component": { "Column": { "children": { "explicitList": ["s4-title", "s4a-title", "s4a-content", "s4-divider-1", "s4b-title", "s4b-content", "s4-divider-2", "s4c-title", "s4c-content"] }, "alignment": "stretch" } } },
+        { "id": "s4-title", "component": { "Text": { "usageHint": "h2", "text": { "literalString": "Site" } } } },
+
+        { "id": "s4a-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Site Dimensions" } } } },
+        { "id": "s4a-content", "component": { "Column": { "children": { "explicitList": ["s4a-row1", "s4a-row2"] }, "alignment": "stretch" } } },
+        { "id": "s4a-row1", "component": { "Row": { "children": { "explicitList": ["field-lot-dimensions", "field-lot-area", "field-lot-shape"] }, "alignment": "start" } } },
+        { "id": "field-lot-dimensions", "weight": 1, "component": { "TextField": { "label": { "literalString": "Dimensions" }, "text": { "path": "/site/dimensions" } } } },
+        { "id": "field-lot-area", "weight": 1, "component": { "TextField": { "label": { "literalString": "Area (sq ft)" }, "text": { "path": "/site/area" }, "type": "number" } } },
+        { "id": "field-lot-shape", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/site/shape" }, "options": [ { "label": { "literalString": "Rectangular" }, "value": "rectangular" }, { "label": { "literalString": "Irregular" }, "value": "irregular" }, { "label": { "literalString": "Other" }, "value": "other" } ] } } },
+
+        { "id": "s4a-row2", "component": { "Row": { "children": { "explicitList": ["field-topography", "field-drainage", "field-view"] }, "alignment": "start" } } },
+        { "id": "field-topography", "weight": 1, "component": { "TextField": { "label": { "literalString": "Topography" }, "text": { "path": "/site/topography" } } } },
+        { "id": "field-drainage", "weight": 1, "component": { "TextField": { "label": { "literalString": "Drainage" }, "text": { "path": "/site/drainage" } } } },
+        { "id": "field-view", "weight": 1, "component": { "TextField": { "label": { "literalString": "View" }, "text": { "path": "/site/view" } } } },
+
+        { "id": "s4-divider-1", "component": { "Divider": {} } },
+
+        { "id": "s4b-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Utilities" } } } },
+        { "id": "s4b-content", "component": { "Column": { "children": { "explicitList": ["s4b-row1", "s4b-row2"] }, "alignment": "stretch" } } },
+        { "id": "s4b-row1", "component": { "Row": { "children": { "explicitList": ["field-electricity", "field-gas", "field-water", "field-sewer"] }, "alignment": "start" } } },
+        { "id": "field-electricity", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/site/electricity" }, "options": [ { "label": { "literalString": "Public" }, "value": "public" }, { "label": { "literalString": "Other" }, "value": "other" } ] } } },
+        { "id": "field-gas", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/site/gas" }, "options": [ { "label": { "literalString": "Public" }, "value": "public" }, { "label": { "literalString": "None" }, "value": "none" }, { "label": { "literalString": "Other" }, "value": "other" } ] } } },
+        { "id": "field-water", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/site/water" }, "options": [ { "label": { "literalString": "Public" }, "value": "public" }, { "label": { "literalString": "Private" }, "value": "private" } ] } } },
+        { "id": "field-sewer", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/site/sewer" }, "options": [ { "label": { "literalString": "Public" }, "value": "public" }, { "label": { "literalString": "Septic" }, "value": "septic" } ] } } },
+
+        { "id": "s4b-row2", "component": { "Row": { "children": { "explicitList": ["field-street-public", "field-street-surface", "field-alley"] }, "alignment": "start" } } },
+        { "id": "field-street-public", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/site/streetType" }, "options": [ { "label": { "literalString": "Public" }, "value": "public" }, { "label": { "literalString": "Private" }, "value": "private" } ] } } },
+        { "id": "field-street-surface", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/site/streetSurface" }, "options": [ { "label": { "literalString": "Asphalt" }, "value": "asphalt" }, { "label": { "literalString": "Concrete" }, "value": "concrete" }, { "label": { "literalString": "Gravel" }, "value": "gravel" } ] } } },
+        { "id": "field-alley", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Alley Access" }, "value": { "path": "/site/alleyAccess" } } } },
+
+        { "id": "s4-divider-2", "component": { "Divider": {} } },
+
+        { "id": "s4c-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Zoning & Adverse Conditions" } } } },
+        { "id": "s4c-content", "component": { "Column": { "children": { "explicitList": ["s4c-row1", "s4c-row2", "s4c-row3"] }, "alignment": "stretch" } } },
+        { "id": "s4c-row1", "component": { "Row": { "children": { "explicitList": ["field-zoning-classification", "field-zoning-description", "field-zoning-compliance"] }, "alignment": "start" } } },
+        { "id": "field-zoning-classification", "weight": 1, "component": { "TextField": { "label": { "literalString": "Zoning Classification" }, "text": { "path": "/site/zoningClassification" } } } },
+        { "id": "field-zoning-description", "weight": 1, "component": { "TextField": { "label": { "literalString": "Zoning Description" }, "text": { "path": "/site/zoningDescription" } } } },
+        { "id": "field-zoning-compliance", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/site/zoningCompliance" }, "options": [ { "label": { "literalString": "Legal" }, "value": "legal" }, { "label": { "literalString": "Legal Nonconforming" }, "value": "legal_nonconforming" }, { "label": { "literalString": "No Zoning" }, "value": "no_zoning" }, { "label": { "literalString": "Illegal" }, "value": "illegal" } ] } } },
+
+        { "id": "s4c-row2", "component": { "Row": { "children": { "explicitList": ["field-highest-best-use", "field-fema-flood-zone"] }, "alignment": "start" } } },
+        { "id": "field-highest-best-use", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Is the highest and best use as improved the present use?" }, "value": { "path": "/site/highestBestUse" } } } },
+        { "id": "field-fema-flood-zone", "weight": 1, "component": { "TextField": { "label": { "literalString": "FEMA Flood Zone" }, "text": { "path": "/site/femaFloodZone" } } } },
+
+        { "id": "s4c-row3", "component": { "Row": { "children": { "explicitList": ["field-adverse-conditions"] }, "alignment": "start" } } },
+        { "id": "field-adverse-conditions", "weight": 1, "component": { "TextField": { "label": { "literalString": "Adverse Site Conditions (easements, encroachments, environmental conditions, etc.)" }, "text": { "path": "/site/adverseConditions" } } } },
+
+
+        { "id": "section-5", "component": { "Column": { "children": { "explicitList": ["s5-card"] }, "alignment": "stretch" } } },
+        { "id": "s5-card", "component": { "Card": { "child": "s5-content" } } },
+        { "id": "s5-content", "component": { "Column": { "children": { "explicitList": ["s5-title", "s5a-title", "s5a-content", "s5-divider-1", "s5b-title", "s5b-content", "s5-divider-2", "s5c-title", "s5c-content", "s5-divider-3", "s5d-title", "s5d-content"] }, "alignment": "stretch" } } },
+        { "id": "s5-title", "component": { "Text": { "usageHint": "h2", "text": { "literalString": "Improvements" } } } },
+
+        { "id": "s5a-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "General Description" } } } },
+        { "id": "s5a-content", "component": { "Column": { "children": { "explicitList": ["s5a-row1", "s5a-row2", "s5a-row3"] }, "alignment": "stretch" } } },
+        { "id": "s5a-row1", "component": { "Row": { "children": { "explicitList": ["field-units", "field-stories", "field-design-style", "field-existing-proposed"] }, "alignment": "start" } } },
+        { "id": "field-units", "weight": 1, "component": { "TextField": { "label": { "literalString": "# of Units" }, "text": { "path": "/improvements/units" }, "type": "number" } } },
+        { "id": "field-stories", "weight": 1, "component": { "TextField": { "label": { "literalString": "# of Stories" }, "text": { "path": "/improvements/stories" }, "type": "number" } } },
+        { "id": "field-design-style", "weight": 1, "component": { "TextField": { "label": { "literalString": "Design (Style)" }, "text": { "path": "/improvements/designStyle" } } } },
+        { "id": "field-existing-proposed", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/improvements/existingProposed" }, "options": [ { "label": { "literalString": "Existing" }, "value": "existing" }, { "label": { "literalString": "Proposed" }, "value": "proposed" }, { "label": { "literalString": "Under Construction" }, "value": "under_construction" } ] } } },
+
+        { "id": "s5a-row2", "component": { "Row": { "children": { "explicitList": ["field-year-built", "field-effective-age", "field-attachment-type"] }, "alignment": "start" } } },
+        { "id": "field-year-built", "weight": 1, "component": { "TextField": { "label": { "literalString": "Year Built" }, "text": { "path": "/improvements/yearBuilt" }, "type": "number" } } },
+        { "id": "field-effective-age", "weight": 1, "component": { "TextField": { "label": { "literalString": "Effective Age (yrs)" }, "text": { "path": "/improvements/effectiveAge" }, "type": "number" } } },
+        { "id": "field-attachment-type", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/improvements/attachmentType" }, "options": [ { "label": { "literalString": "Detached" }, "value": "detached" }, { "label": { "literalString": "Attached" }, "value": "attached" }, { "label": { "literalString": "Semi-Detached" }, "value": "semi_detached" } ] } } },
+
+        { "id": "s5a-row3", "component": { "Row": { "children": { "explicitList": ["field-attic", "field-basement", "field-crawl-space"] }, "alignment": "start" } } },
+        { "id": "field-attic", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Attic" }, "value": { "path": "/improvements/hasAttic" } } } },
+        { "id": "field-basement", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Basement" }, "value": { "path": "/improvements/hasBasement" } } } },
+        { "id": "field-crawl-space", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Crawl Space" }, "value": { "path": "/improvements/hasCrawlSpace" } } } },
+
+        { "id": "s5-divider-1", "component": { "Divider": {} } },
+
+        { "id": "s5b-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Foundation & Exterior" } } } },
+        { "id": "s5b-content", "component": { "Column": { "children": { "explicitList": ["s5b-row1", "s5b-row2", "s5b-row3"] }, "alignment": "stretch" } } },
+        { "id": "s5b-row1", "component": { "Row": { "children": { "explicitList": ["field-foundation-type", "field-foundation-material"] }, "alignment": "start" } } },
+        { "id": "field-foundation-type", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/improvements/foundationType" }, "options": [ { "label": { "literalString": "Full Basement" }, "value": "full_basement" }, { "label": { "literalString": "Partial Basement" }, "value": "partial_basement" }, { "label": { "literalString": "Crawl Space" }, "value": "crawl_space" }, { "label": { "literalString": "Slab" }, "value": "slab" } ] } } },
+        { "id": "field-foundation-material", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/improvements/foundationMaterial" }, "options": [ { "label": { "literalString": "Concrete" }, "value": "concrete" }, { "label": { "literalString": "Block" }, "value": "block" }, { "label": { "literalString": "Stone" }, "value": "stone" }, { "label": { "literalString": "Wood" }, "value": "wood" } ] } } },
+
+        { "id": "s5b-row2", "component": { "Row": { "children": { "explicitList": ["field-exterior-walls", "field-roof-surface"] }, "alignment": "start" } } },
+        { "id": "field-exterior-walls", "weight": 1, "component": { "TextField": { "label": { "literalString": "Exterior Walls" }, "text": { "path": "/improvements/exteriorWalls" } } } },
+        { "id": "field-roof-surface", "weight": 1, "component": { "TextField": { "label": { "literalString": "Roof Surface" }, "text": { "path": "/improvements/roofSurface" } } } },
+
+        { "id": "s5b-row3", "component": { "Row": { "children": { "explicitList": ["field-gutters", "field-window-type", "field-screens"] }, "alignment": "start" } } },
+        { "id": "field-gutters", "weight": 1, "component": { "TextField": { "label": { "literalString": "Gutters & Downspouts" }, "text": { "path": "/improvements/gutters" } } } },
+        { "id": "field-window-type", "weight": 1, "component": { "TextField": { "label": { "literalString": "Window Type" }, "text": { "path": "/improvements/windowType" } } } },
+        { "id": "field-screens", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Storm Sash/Insulated Screens" }, "value": { "path": "/improvements/hasScreens" } } } },
+
+        { "id": "s5-divider-2", "component": { "Divider": {} } },
+
+        { "id": "s5c-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Interior & Room Count" } } } },
+        { "id": "s5c-content", "component": { "Column": { "children": { "explicitList": ["s5c-row1", "s5c-row2", "s5c-row3"] }, "alignment": "stretch" } } },
+        { "id": "s5c-row1", "component": { "Row": { "children": { "explicitList": ["field-floors-material", "field-walls-material", "field-trim-material"] }, "alignment": "start" } } },
+        { "id": "field-floors-material", "weight": 1, "component": { "TextField": { "label": { "literalString": "Floors" }, "text": { "path": "/improvements/floorsMaterial" } } } },
+        { "id": "field-walls-material", "weight": 1, "component": { "TextField": { "label": { "literalString": "Walls" }, "text": { "path": "/improvements/wallsMaterial" } } } },
+        { "id": "field-trim-material", "weight": 1, "component": { "TextField": { "label": { "literalString": "Trim/Finish" }, "text": { "path": "/improvements/trimMaterial" } } } },
+
+        { "id": "s5c-row2", "component": { "Row": { "children": { "explicitList": ["field-total-rooms", "field-bedrooms", "field-bathrooms-full", "field-bathrooms-half"] }, "alignment": "start" } } },
+        { "id": "field-total-rooms", "weight": 1, "component": { "TextField": { "label": { "literalString": "Total Rooms" }, "text": { "path": "/improvements/totalRooms" }, "type": "number" } } },
+        { "id": "field-bedrooms", "weight": 1, "component": { "TextField": { "label": { "literalString": "Bedrooms" }, "text": { "path": "/improvements/bedrooms" }, "type": "number" } } },
+        { "id": "field-bathrooms-full", "weight": 1, "component": { "TextField": { "label": { "literalString": "Full Baths" }, "text": { "path": "/improvements/bathroomsFull" }, "type": "number" } } },
+        { "id": "field-bathrooms-half", "weight": 1, "component": { "TextField": { "label": { "literalString": "Half Baths" }, "text": { "path": "/improvements/bathroomsHalf" }, "type": "number" } } },
+
+        { "id": "s5c-row3", "component": { "Row": { "children": { "explicitList": ["field-gross-living-area", "field-basement-area", "field-basement-finished"] }, "alignment": "start" } } },
+        { "id": "field-gross-living-area", "weight": 1, "component": { "TextField": { "label": { "literalString": "Gross Living Area (sq ft) *" }, "text": { "path": "/improvements/grossLivingArea" }, "type": "number", "required": true } } },
+        { "id": "field-basement-area", "weight": 1, "component": { "TextField": { "label": { "literalString": "Basement Area (sq ft)" }, "text": { "path": "/improvements/basementArea" }, "type": "number" } } },
+        { "id": "field-basement-finished", "weight": 1, "component": { "TextField": { "label": { "literalString": "Basement Finished (sq ft)" }, "text": { "path": "/improvements/basementFinished" }, "type": "number" } } },
+
+        { "id": "s5-divider-3", "component": { "Divider": {} } },
+
+        { "id": "s5d-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Heating, Cooling & Amenities" } } } },
+        { "id": "s5d-content", "component": { "Column": { "children": { "explicitList": ["s5d-row1", "s5d-row2", "s5d-row3", "s5d-row4"] }, "alignment": "stretch" } } },
+        { "id": "s5d-row1", "component": { "Row": { "children": { "explicitList": ["field-heating-type", "field-heating-fuel", "field-cooling"] }, "alignment": "start" } } },
+        { "id": "field-heating-type", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/improvements/heatingType" }, "options": [ { "label": { "literalString": "FWA" }, "value": "fwa" }, { "label": { "literalString": "HWBB" }, "value": "hwbb" }, { "label": { "literalString": "Radiant" }, "value": "radiant" }, { "label": { "literalString": "Other" }, "value": "other" } ] } } },
+        { "id": "field-heating-fuel", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/improvements/heatingFuel" }, "options": [ { "label": { "literalString": "Gas" }, "value": "gas" }, { "label": { "literalString": "Electric" }, "value": "electric" }, { "label": { "literalString": "Oil" }, "value": "oil" }, { "label": { "literalString": "Other" }, "value": "other" } ] } } },
+        { "id": "field-cooling", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/improvements/cooling" }, "options": [ { "label": { "literalString": "Central AC" }, "value": "central" }, { "label": { "literalString": "Individual" }, "value": "individual" }, { "label": { "literalString": "None" }, "value": "none" } ] } } },
+
+        { "id": "s5d-row2", "component": { "Row": { "children": { "explicitList": ["field-fireplace-count", "field-garage-type", "field-garage-cars"] }, "alignment": "start" } } },
+        { "id": "field-fireplace-count", "weight": 1, "component": { "TextField": { "label": { "literalString": "Fireplace(s) #" }, "text": { "path": "/improvements/fireplaceCount" }, "type": "number" } } },
+        { "id": "field-garage-type", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/improvements/garageType" }, "options": [ { "label": { "literalString": "Attached" }, "value": "attached" }, { "label": { "literalString": "Detached" }, "value": "detached" }, { "label": { "literalString": "Built-in" }, "value": "builtin" }, { "label": { "literalString": "None" }, "value": "none" } ] } } },
+        { "id": "field-garage-cars", "weight": 1, "component": { "TextField": { "label": { "literalString": "Garage # of Cars" }, "text": { "path": "/improvements/garageCars" }, "type": "number" } } },
+
+        { "id": "s5d-row3", "component": { "Row": { "children": { "explicitList": ["field-pool", "field-fence", "field-patio-deck"] }, "alignment": "start" } } },
+        { "id": "field-pool", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Pool" }, "value": { "path": "/improvements/hasPool" } } } },
+        { "id": "field-fence", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Fence" }, "value": { "path": "/improvements/hasFence" } } } },
+        { "id": "field-patio-deck", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Patio/Deck" }, "value": { "path": "/improvements/hasPatioDeck" } } } },
+
+        { "id": "s5d-row4", "component": { "Row": { "children": { "explicitList": ["field-condition-overall", "field-quality-overall"] }, "alignment": "start" } } },
+        { "id": "field-condition-overall", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/improvements/conditionOverall" }, "options": [ { "label": { "literalString": "C1 - New" }, "value": "c1" }, { "label": { "literalString": "C2 - Excellent" }, "value": "c2" }, { "label": { "literalString": "C3 - Good" }, "value": "c3" }, { "label": { "literalString": "C4 - Average" }, "value": "c4" } ] } } },
+        { "id": "field-quality-overall", "weight": 1, "component": { "MultipleChoice": { "selections": { "path": "/improvements/qualityOverall" }, "options": [ { "label": { "literalString": "Q1 - Luxury" }, "value": "q1" }, { "label": { "literalString": "Q2 - High Quality" }, "value": "q2" }, { "label": { "literalString": "Q3 - Good Quality" }, "value": "q3" }, { "label": { "literalString": "Q4 - Average" }, "value": "q4" } ] } } },
+
+
+        { "id": "section-6", "component": { "Column": { "children": { "explicitList": ["s6-card"] }, "alignment": "stretch" } } },
+        { "id": "s6-card", "component": { "Card": { "child": "s6-content" } } },
+        { "id": "s6-content", "component": { "Column": { "children": { "explicitList": ["s6-title", "s6-desc", "s6a-title", "s6a-content", "s6-divider-1", "s6b-title", "s6b-content", "s6-divider-2", "s6c-title", "s6c-content"] }, "alignment": "stretch" } } },
+        { "id": "s6-title", "component": { "Text": { "usageHint": "h2", "text": { "literalString": "Sales Comparison Approach" } } } },
+        { "id": "s6-desc", "component": { "Text": { "usageHint": "body", "text": { "literalString": "There are comparable properties currently offered for sale and comparable sales within 12 months prior to the effective date of this appraisal in the subject neighborhood." } } } },
+
+        { "id": "s6a-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Comparable Sale 1" } } } },
+        { "id": "s6a-content", "component": { "Column": { "children": { "explicitList": ["s6a-row1", "s6a-row2", "s6a-row3", "s6a-row4"] }, "alignment": "stretch" } } },
+        { "id": "s6a-row1", "component": { "Row": { "children": { "explicitList": ["field-comp1-address", "field-comp1-proximity"] }, "alignment": "start" } } },
+        { "id": "field-comp1-address", "weight": 2, "component": { "TextField": { "label": { "literalString": "Address" }, "text": { "path": "/comparables/comp1/address" } } } },
+        { "id": "field-comp1-proximity", "weight": 1, "component": { "TextField": { "label": { "literalString": "Proximity to Subject" }, "text": { "path": "/comparables/comp1/proximity" } } } },
+
+        { "id": "s6a-row2", "component": { "Row": { "children": { "explicitList": ["field-comp1-sale-price", "field-comp1-sale-date", "field-comp1-data-source"] }, "alignment": "start" } } },
+        { "id": "field-comp1-sale-price", "weight": 1, "component": { "TextField": { "label": { "literalString": "Sale Price ($)" }, "text": { "path": "/comparables/comp1/salePrice" }, "type": "number" } } },
+        { "id": "field-comp1-sale-date", "weight": 1, "component": { "DateTimeInput": { "label": { "literalString": "Sale Date" }, "value": { "path": "/comparables/comp1/saleDate" }, "enableDate": true, "enableTime": false } } },
+        { "id": "field-comp1-data-source", "weight": 1, "component": { "TextField": { "label": { "literalString": "Data Source" }, "text": { "path": "/comparables/comp1/dataSource" } } } },
+
+        { "id": "s6a-row3", "component": { "Row": { "children": { "explicitList": ["field-comp1-gla", "field-comp1-bedrooms", "field-comp1-bathrooms"] }, "alignment": "start" } } },
+        { "id": "field-comp1-gla", "weight": 1, "component": { "TextField": { "label": { "literalString": "Gross Living Area (sq ft)" }, "text": { "path": "/comparables/comp1/gla" }, "type": "number" } } },
+        { "id": "field-comp1-bedrooms", "weight": 1, "component": { "TextField": { "label": { "literalString": "Bedrooms" }, "text": { "path": "/comparables/comp1/bedrooms" }, "type": "number" } } },
+        { "id": "field-comp1-bathrooms", "weight": 1, "component": { "TextField": { "label": { "literalString": "Bathrooms" }, "text": { "path": "/comparables/comp1/bathrooms" }, "type": "number" } } },
+
+        { "id": "s6a-row4", "component": { "Row": { "children": { "explicitList": ["field-comp1-net-adj", "field-comp1-adjusted-price"] }, "alignment": "start" } } },
+        { "id": "field-comp1-net-adj", "weight": 1, "component": { "TextField": { "label": { "literalString": "Net Adjustment ($)" }, "text": { "path": "/comparables/comp1/netAdjustment" }, "type": "number" } } },
+        { "id": "field-comp1-adjusted-price", "weight": 1, "component": { "TextField": { "label": { "literalString": "Adjusted Sale Price ($)" }, "text": { "path": "/comparables/comp1/adjustedPrice" }, "type": "number" } } },
+
+        { "id": "s6-divider-1", "component": { "Divider": {} } },
+
+        { "id": "s6b-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Comparable Sale 2" } } } },
+        { "id": "s6b-content", "component": { "Column": { "children": { "explicitList": ["s6b-row1", "s6b-row2", "s6b-row3", "s6b-row4"] }, "alignment": "stretch" } } },
+        { "id": "s6b-row1", "component": { "Row": { "children": { "explicitList": ["field-comp2-address", "field-comp2-proximity"] }, "alignment": "start" } } },
+        { "id": "field-comp2-address", "weight": 2, "component": { "TextField": { "label": { "literalString": "Address" }, "text": { "path": "/comparables/comp2/address" } } } },
+        { "id": "field-comp2-proximity", "weight": 1, "component": { "TextField": { "label": { "literalString": "Proximity to Subject" }, "text": { "path": "/comparables/comp2/proximity" } } } },
+
+        { "id": "s6b-row2", "component": { "Row": { "children": { "explicitList": ["field-comp2-sale-price", "field-comp2-sale-date", "field-comp2-data-source"] }, "alignment": "start" } } },
+        { "id": "field-comp2-sale-price", "weight": 1, "component": { "TextField": { "label": { "literalString": "Sale Price ($)" }, "text": { "path": "/comparables/comp2/salePrice" }, "type": "number" } } },
+        { "id": "field-comp2-sale-date", "weight": 1, "component": { "DateTimeInput": { "label": { "literalString": "Sale Date" }, "value": { "path": "/comparables/comp2/saleDate" }, "enableDate": true, "enableTime": false } } },
+        { "id": "field-comp2-data-source", "weight": 1, "component": { "TextField": { "label": { "literalString": "Data Source" }, "text": { "path": "/comparables/comp2/dataSource" } } } },
+
+        { "id": "s6b-row3", "component": { "Row": { "children": { "explicitList": ["field-comp2-gla", "field-comp2-bedrooms", "field-comp2-bathrooms"] }, "alignment": "start" } } },
+        { "id": "field-comp2-gla", "weight": 1, "component": { "TextField": { "label": { "literalString": "Gross Living Area (sq ft)" }, "text": { "path": "/comparables/comp2/gla" }, "type": "number" } } },
+        { "id": "field-comp2-bedrooms", "weight": 1, "component": { "TextField": { "label": { "literalString": "Bedrooms" }, "text": { "path": "/comparables/comp2/bedrooms" }, "type": "number" } } },
+        { "id": "field-comp2-bathrooms", "weight": 1, "component": { "TextField": { "label": { "literalString": "Bathrooms" }, "text": { "path": "/comparables/comp2/bathrooms" }, "type": "number" } } },
+
+        { "id": "s6b-row4", "component": { "Row": { "children": { "explicitList": ["field-comp2-net-adj", "field-comp2-adjusted-price"] }, "alignment": "start" } } },
+        { "id": "field-comp2-net-adj", "weight": 1, "component": { "TextField": { "label": { "literalString": "Net Adjustment ($)" }, "text": { "path": "/comparables/comp2/netAdjustment" }, "type": "number" } } },
+        { "id": "field-comp2-adjusted-price", "weight": 1, "component": { "TextField": { "label": { "literalString": "Adjusted Sale Price ($)" }, "text": { "path": "/comparables/comp2/adjustedPrice" }, "type": "number" } } },
+
+        { "id": "s6-divider-2", "component": { "Divider": {} } },
+
+        { "id": "s6c-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Comparable Sale 3" } } } },
+        { "id": "s6c-content", "component": { "Column": { "children": { "explicitList": ["s6c-row1", "s6c-row2", "s6c-row3", "s6c-row4"] }, "alignment": "stretch" } } },
+        { "id": "s6c-row1", "component": { "Row": { "children": { "explicitList": ["field-comp3-address", "field-comp3-proximity"] }, "alignment": "start" } } },
+        { "id": "field-comp3-address", "weight": 2, "component": { "TextField": { "label": { "literalString": "Address" }, "text": { "path": "/comparables/comp3/address" } } } },
+        { "id": "field-comp3-proximity", "weight": 1, "component": { "TextField": { "label": { "literalString": "Proximity to Subject" }, "text": { "path": "/comparables/comp3/proximity" } } } },
+
+        { "id": "s6c-row2", "component": { "Row": { "children": { "explicitList": ["field-comp3-sale-price", "field-comp3-sale-date", "field-comp3-data-source"] }, "alignment": "start" } } },
+        { "id": "field-comp3-sale-price", "weight": 1, "component": { "TextField": { "label": { "literalString": "Sale Price ($)" }, "text": { "path": "/comparables/comp3/salePrice" }, "type": "number" } } },
+        { "id": "field-comp3-sale-date", "weight": 1, "component": { "DateTimeInput": { "label": { "literalString": "Sale Date" }, "value": { "path": "/comparables/comp3/saleDate" }, "enableDate": true, "enableTime": false } } },
+        { "id": "field-comp3-data-source", "weight": 1, "component": { "TextField": { "label": { "literalString": "Data Source" }, "text": { "path": "/comparables/comp3/dataSource" } } } },
+
+        { "id": "s6c-row3", "component": { "Row": { "children": { "explicitList": ["field-comp3-gla", "field-comp3-bedrooms", "field-comp3-bathrooms"] }, "alignment": "start" } } },
+        { "id": "field-comp3-gla", "weight": 1, "component": { "TextField": { "label": { "literalString": "Gross Living Area (sq ft)" }, "text": { "path": "/comparables/comp3/gla" }, "type": "number" } } },
+        { "id": "field-comp3-bedrooms", "weight": 1, "component": { "TextField": { "label": { "literalString": "Bedrooms" }, "text": { "path": "/comparables/comp3/bedrooms" }, "type": "number" } } },
+        { "id": "field-comp3-bathrooms", "weight": 1, "component": { "TextField": { "label": { "literalString": "Bathrooms" }, "text": { "path": "/comparables/comp3/bathrooms" }, "type": "number" } } },
+
+        { "id": "s6c-row4", "component": { "Row": { "children": { "explicitList": ["field-comp3-net-adj", "field-comp3-adjusted-price"] }, "alignment": "start" } } },
+        { "id": "field-comp3-net-adj", "weight": 1, "component": { "TextField": { "label": { "literalString": "Net Adjustment ($)" }, "text": { "path": "/comparables/comp3/netAdjustment" }, "type": "number" } } },
+        { "id": "field-comp3-adjusted-price", "weight": 1, "component": { "TextField": { "label": { "literalString": "Adjusted Sale Price ($)" }, "text": { "path": "/comparables/comp3/adjustedPrice" }, "type": "number" } } },
+
+
+        { "id": "section-7", "component": { "Column": { "children": { "explicitList": ["s7-card"] }, "alignment": "stretch" } } },
+        { "id": "s7-card", "component": { "Card": { "child": "s7-content" } } },
+        { "id": "s7-content", "component": { "Column": { "children": { "explicitList": ["s7-title", "s7a-title", "s7a-content", "s7-divider-1", "s7b-title", "s7b-content"] }, "alignment": "stretch" } } },
+        { "id": "s7-title", "component": { "Text": { "usageHint": "h2", "text": { "literalString": "Reconciliation" } } } },
+
+        { "id": "s7a-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Indicated Value by Sales Comparison Approach" } } } },
+        { "id": "s7a-content", "component": { "Column": { "children": { "explicitList": ["s7a-row1", "s7a-row2"] }, "alignment": "stretch" } } },
+        { "id": "s7a-row1", "component": { "Row": { "children": { "explicitList": ["field-indicated-value", "field-effective-date"] }, "alignment": "start" } } },
+        { "id": "field-indicated-value", "weight": 1, "component": { "TextField": { "label": { "literalString": "Indicated Value by Sales Comparison ($) *" }, "text": { "path": "/reconciliation/indicatedValueSales" }, "type": "number", "required": true } } },
+        { "id": "field-effective-date", "weight": 1, "component": { "DateTimeInput": { "label": { "literalString": "Effective Date of Appraisal *" }, "value": { "path": "/reconciliation/effectiveDate" }, "enableDate": true, "enableTime": false } } },
+
+        { "id": "s7a-row2", "component": { "Row": { "children": { "explicitList": ["field-reconciliation-comments"] }, "alignment": "start" } } },
+        { "id": "field-reconciliation-comments", "weight": 1, "component": { "TextField": { "label": { "literalString": "Reconciliation Comments" }, "text": { "path": "/reconciliation/comments" } } } },
+
+        { "id": "s7-divider-1", "component": { "Divider": {} } },
+
+        { "id": "s7b-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Opinion of Market Value" } } } },
+        { "id": "s7b-content", "component": { "Column": { "children": { "explicitList": ["s7b-row1", "s7b-row2", "s7b-row3"] }, "alignment": "stretch" } } },
+        { "id": "s7b-row1", "component": { "Row": { "children": { "explicitList": ["field-opinion-market-value"] }, "alignment": "start" } } },
+        { "id": "field-opinion-market-value", "weight": 1, "component": { "TextField": { "label": { "literalString": "Opinion of Market Value ($) *" }, "text": { "path": "/reconciliation/opinionMarketValue" }, "type": "number", "required": true } } },
+
+        { "id": "s7b-row2", "component": { "Row": { "children": { "explicitList": ["field-as-is", "field-subject-to-completion", "field-subject-to-repairs"] }, "alignment": "start" } } },
+        { "id": "field-as-is", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "As Is" }, "value": { "path": "/reconciliation/asIs" } } } },
+        { "id": "field-subject-to-completion", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Subject to Completion" }, "value": { "path": "/reconciliation/subjectToCompletion" } } } },
+        { "id": "field-subject-to-repairs", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "Subject to Repairs/Alterations" }, "value": { "path": "/reconciliation/subjectToRepairs" } } } },
+
+        { "id": "s7b-row3", "component": { "Row": { "children": { "explicitList": ["field-conditions-of-appraisal"] }, "alignment": "start" } } },
+        { "id": "field-conditions-of-appraisal", "weight": 1, "component": { "TextField": { "label": { "literalString": "Conditions of the Appraisal" }, "text": { "path": "/reconciliation/conditions" } } } },
+
+
+        { "id": "section-8", "component": { "Column": { "children": { "explicitList": ["s8-card"] }, "alignment": "stretch" } } },
+        { "id": "s8-card", "component": { "Card": { "child": "s8-content" } } },
+        { "id": "s8-content", "component": { "Column": { "children": { "explicitList": ["s8-title", "s8a-title", "s8a-content", "s8-divider-1", "s8b-title", "s8b-content", "s8-divider-2", "s8-submit-row"] }, "alignment": "stretch" } } },
+        { "id": "s8-title", "component": { "Text": { "usageHint": "h2", "text": { "literalString": "Appraiser" } } } },
+
+        { "id": "s8a-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Appraiser Information" } } } },
+        { "id": "s8a-content", "component": { "Column": { "children": { "explicitList": ["s8a-row1", "s8a-row2", "s8a-row3"] }, "alignment": "stretch" } } },
+        { "id": "s8a-row1", "component": { "Row": { "children": { "explicitList": ["field-appraiser-name", "field-appraiser-company"] }, "alignment": "start" } } },
+        { "id": "field-appraiser-name", "weight": 1, "component": { "TextField": { "label": { "literalString": "Appraiser Name *" }, "text": { "path": "/appraiser/name" }, "required": true } } },
+        { "id": "field-appraiser-company", "weight": 1, "component": { "TextField": { "label": { "literalString": "Company Name" }, "text": { "path": "/appraiser/company" } } } },
+
+        { "id": "s8a-row2", "component": { "Row": { "children": { "explicitList": ["field-appraiser-address", "field-appraiser-phone", "field-appraiser-email"] }, "alignment": "start" } } },
+        { "id": "field-appraiser-address", "weight": 2, "component": { "TextField": { "label": { "literalString": "Company Address" }, "text": { "path": "/appraiser/address" } } } },
+        { "id": "field-appraiser-phone", "weight": 1, "component": { "TextField": { "label": { "literalString": "Phone" }, "text": { "path": "/appraiser/phone" } } } },
+        { "id": "field-appraiser-email", "weight": 1, "component": { "TextField": { "label": { "literalString": "Email" }, "text": { "path": "/appraiser/email" } } } },
+
+        { "id": "s8a-row3", "component": { "Row": { "children": { "explicitList": ["field-appraiser-license", "field-appraiser-state", "field-appraiser-expiration"] }, "alignment": "start" } } },
+        { "id": "field-appraiser-license", "weight": 1, "component": { "TextField": { "label": { "literalString": "State License/Certification #" }, "text": { "path": "/appraiser/licenseNumber" } } } },
+        { "id": "field-appraiser-state", "weight": 1, "component": { "TextField": { "label": { "literalString": "State" }, "text": { "path": "/appraiser/licenseState" } } } },
+        { "id": "field-appraiser-expiration", "weight": 1, "component": { "DateTimeInput": { "label": { "literalString": "Expiration Date" }, "value": { "path": "/appraiser/licenseExpiration" }, "enableDate": true, "enableTime": false } } },
+
+        { "id": "s8-divider-1", "component": { "Divider": {} } },
+
+        { "id": "s8b-title", "component": { "Text": { "usageHint": "h3", "text": { "literalString": "Certification" } } } },
+        { "id": "s8b-content", "component": { "Column": { "children": { "explicitList": ["s8b-text", "s8b-row1", "s8b-row2"] }, "alignment": "stretch" } } },
+        { "id": "s8b-text", "component": { "Text": { "usageHint": "body", "text": { "literalString": "I certify that, to the best of my knowledge and belief: The statements of fact contained in this report are true and correct. The reported analyses, opinions, and conclusions are limited only by the reported assumptions and limiting conditions and are my personal, impartial, and unbiased professional analyses, opinions, and conclusions." } } } },
+        { "id": "s8b-row1", "component": { "Row": { "children": { "explicitList": ["field-did-inspect", "field-did-not-inspect"] }, "alignment": "start" } } },
+        { "id": "field-did-inspect", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "I did personally inspect the interior and exterior of the subject property" }, "value": { "path": "/appraiser/didInspect" } } } },
+        { "id": "field-did-not-inspect", "weight": 1, "component": { "CheckBox": { "label": { "literalString": "I did not personally inspect the exterior of the subject property from the street" }, "value": { "path": "/appraiser/didNotInspect" } } } },
+
+        { "id": "s8b-row2", "component": { "Row": { "children": { "explicitList": ["field-signature-date"] }, "alignment": "start" } } },
+        { "id": "field-signature-date", "weight": 1, "component": { "DateTimeInput": { "label": { "literalString": "Signature Date *" }, "value": { "path": "/appraiser/signatureDate" }, "enableDate": true, "enableTime": false } } },
+
+        { "id": "s8-divider-2", "component": { "Divider": {} } },
+        { "id": "s8-submit-row", "component": { "Row": { "children": { "explicitList": ["btn-save-draft", "btn-submit"] }, "distribution": "end", "alignment": "center" } } },
+        { "id": "btn-save-draft", "component": { "Button": { "child": "btn-save-draft-text", "primary": false, "action": { "name": "save_draft" } } } },
+        { "id": "btn-save-draft-text", "component": { "Text": { "text": { "literalString": "Save Draft" } } } },
+        { "id": "btn-submit", "component": { "Button": { "child": "btn-submit-text", "primary": true, "action": { "name": "submit_application", "context": [ { "key": "formData", "value": { "path": "/" } } ] } } } },
+        { "id": "btn-submit-text", "component": { "Text": { "text": { "literalString": "Submit Appraisal Report" } } } }
+      ]
+    }
+  },
+  {
+    "dataModelUpdate": {
+      "surfaceId": "urla-form",
+      "path": "/",
+      "contents": [
+        { "key": "subject", "valueMap": [
+          { "key": "propertyAddress", "valueString": "" },
+          { "key": "unitNumber", "valueString": "" },
+          { "key": "city", "valueString": "" },
+          { "key": "state", "valueString": "" },
+          { "key": "zipCode", "valueString": "" },
+          { "key": "county", "valueString": "" },
+          { "key": "legalDescription", "valueString": "" },
+          { "key": "assessorParcel", "valueString": "" },
+          { "key": "taxYear", "valueString": "" },
+          { "key": "realEstateTaxes", "valueString": "" },
+          { "key": "specialAssessments", "valueString": "" },
+          { "key": "borrower", "valueString": "" },
+          { "key": "ownerPublicRecord", "valueString": "" },
+          { "key": "occupant", "valueString": "owner" },
+          { "key": "propertyRights", "valueString": "fee_simple" },
+          { "key": "assignmentType", "valueString": "purchase" },
+          { "key": "isPUD", "valueBoolean": false },
+          { "key": "hoaFee", "valueString": "" },
+          { "key": "lenderName", "valueString": "" },
+          { "key": "lenderAddress", "valueString": "" },
+          { "key": "mapReference", "valueString": "" },
+          { "key": "censusTract", "valueString": "" },
+          { "key": "neighborhoodName", "valueString": "" }
+        ] },
+        { "key": "contract", "valueMap": [
+          { "key": "contractPrice", "valueString": "" },
+          { "key": "contractDate", "valueString": "" },
+          { "key": "sellerIsOwner", "valueBoolean": true },
+          { "key": "partyRelationship", "valueBoolean": false },
+          { "key": "hasSellerConcessions", "valueBoolean": false },
+          { "key": "concessionAmount", "valueString": "" },
+          { "key": "financingType", "valueString": "conventional" },
+          { "key": "downPaymentSource", "valueString": "" },
+          { "key": "priorSaleDate", "valueString": "" },
+          { "key": "priorSalePrice", "valueString": "" },
+          { "key": "currentlyOffered", "valueBoolean": false },
+          { "key": "daysOnMarket", "valueString": "" }
+        ] },
+        { "key": "neighborhood", "valueMap": [
+          { "key": "location", "valueString": "suburban" },
+          { "key": "builtUp", "valueString": "over_75" },
+          { "key": "growth", "valueString": "stable" },
+          { "key": "boundaries", "valueString": "" },
+          { "key": "description", "valueString": "" },
+          { "key": "propertyValues", "valueString": "stable" },
+          { "key": "demandSupply", "valueString": "in_balance" },
+          { "key": "marketingTime", "valueString": "3_6" },
+          { "key": "priceLow", "valueString": "" },
+          { "key": "priceHigh", "valueString": "" },
+          { "key": "pricePredominant", "valueString": "" },
+          { "key": "ageLow", "valueString": "" },
+          { "key": "ageHigh", "valueString": "" },
+          { "key": "agePredominant", "valueString": "" },
+          { "key": "oneUnitPct", "valueString": "" },
+          { "key": "twoFourUnitPct", "valueString": "" },
+          { "key": "multiFamilyPct", "valueString": "" },
+          { "key": "commercialPct", "valueString": "" },
+          { "key": "otherPct", "valueString": "" }
+        ] },
+        { "key": "site", "valueMap": [
+          { "key": "dimensions", "valueString": "" },
+          { "key": "area", "valueString": "" },
+          { "key": "shape", "valueString": "rectangular" },
+          { "key": "topography", "valueString": "" },
+          { "key": "drainage", "valueString": "" },
+          { "key": "view", "valueString": "" },
+          { "key": "electricity", "valueString": "public" },
+          { "key": "gas", "valueString": "public" },
+          { "key": "water", "valueString": "public" },
+          { "key": "sewer", "valueString": "public" },
+          { "key": "streetType", "valueString": "public" },
+          { "key": "streetSurface", "valueString": "asphalt" },
+          { "key": "alleyAccess", "valueBoolean": false },
+          { "key": "zoningClassification", "valueString": "" },
+          { "key": "zoningDescription", "valueString": "" },
+          { "key": "zoningCompliance", "valueString": "legal" },
+          { "key": "highestBestUse", "valueBoolean": true },
+          { "key": "femaFloodZone", "valueString": "" },
+          { "key": "adverseConditions", "valueString": "" }
+        ] },
+        { "key": "improvements", "valueMap": [
+          { "key": "units", "valueString": "1" },
+          { "key": "stories", "valueString": "" },
+          { "key": "designStyle", "valueString": "" },
+          { "key": "existingProposed", "valueString": "existing" },
+          { "key": "yearBuilt", "valueString": "" },
+          { "key": "effectiveAge", "valueString": "" },
+          { "key": "attachmentType", "valueString": "detached" },
+          { "key": "hasAttic", "valueBoolean": false },
+          { "key": "hasBasement", "valueBoolean": false },
+          { "key": "hasCrawlSpace", "valueBoolean": false },
+          { "key": "foundationType", "valueString": "slab" },
+          { "key": "foundationMaterial", "valueString": "concrete" },
+          { "key": "exteriorWalls", "valueString": "" },
+          { "key": "roofSurface", "valueString": "" },
+          { "key": "gutters", "valueString": "" },
+          { "key": "windowType", "valueString": "" },
+          { "key": "hasScreens", "valueBoolean": false },
+          { "key": "floorsMaterial", "valueString": "" },
+          { "key": "wallsMaterial", "valueString": "" },
+          { "key": "trimMaterial", "valueString": "" },
+          { "key": "totalRooms", "valueString": "" },
+          { "key": "bedrooms", "valueString": "" },
+          { "key": "bathroomsFull", "valueString": "" },
+          { "key": "bathroomsHalf", "valueString": "" },
+          { "key": "grossLivingArea", "valueString": "" },
+          { "key": "basementArea", "valueString": "" },
+          { "key": "basementFinished", "valueString": "" },
+          { "key": "heatingType", "valueString": "fwa" },
+          { "key": "heatingFuel", "valueString": "gas" },
+          { "key": "cooling", "valueString": "central" },
+          { "key": "fireplaceCount", "valueString": "" },
+          { "key": "garageType", "valueString": "attached" },
+          { "key": "garageCars", "valueString": "" },
+          { "key": "hasPool", "valueBoolean": false },
+          { "key": "hasFence", "valueBoolean": false },
+          { "key": "hasPatioDeck", "valueBoolean": false },
+          { "key": "conditionOverall", "valueString": "c3" },
+          { "key": "qualityOverall", "valueString": "q3" }
+        ] },
+        { "key": "comparables", "valueMap": [
+          { "key": "comp1", "valueMap": [
+            { "key": "address", "valueString": "" },
+            { "key": "proximity", "valueString": "" },
+            { "key": "salePrice", "valueString": "" },
+            { "key": "saleDate", "valueString": "" },
+            { "key": "dataSource", "valueString": "" },
+            { "key": "gla", "valueString": "" },
+            { "key": "bedrooms", "valueString": "" },
+            { "key": "bathrooms", "valueString": "" },
+            { "key": "netAdjustment", "valueString": "" },
+            { "key": "adjustedPrice", "valueString": "" }
+          ] },
+          { "key": "comp2", "valueMap": [
+            { "key": "address", "valueString": "" },
+            { "key": "proximity", "valueString": "" },
+            { "key": "salePrice", "valueString": "" },
+            { "key": "saleDate", "valueString": "" },
+            { "key": "dataSource", "valueString": "" },
+            { "key": "gla", "valueString": "" },
+            { "key": "bedrooms", "valueString": "" },
+            { "key": "bathrooms", "valueString": "" },
+            { "key": "netAdjustment", "valueString": "" },
+            { "key": "adjustedPrice", "valueString": "" }
+          ] },
+          { "key": "comp3", "valueMap": [
+            { "key": "address", "valueString": "" },
+            { "key": "proximity", "valueString": "" },
+            { "key": "salePrice", "valueString": "" },
+            { "key": "saleDate", "valueString": "" },
+            { "key": "dataSource", "valueString": "" },
+            { "key": "gla", "valueString": "" },
+            { "key": "bedrooms", "valueString": "" },
+            { "key": "bathrooms", "valueString": "" },
+            { "key": "netAdjustment", "valueString": "" },
+            { "key": "adjustedPrice", "valueString": "" }
+          ] }
+        ] },
+        { "key": "reconciliation", "valueMap": [
+          { "key": "indicatedValueSales", "valueString": "" },
+          { "key": "effectiveDate", "valueString": "" },
+          { "key": "comments", "valueString": "" },
+          { "key": "opinionMarketValue", "valueString": "" },
+          { "key": "asIs", "valueBoolean": true },
+          { "key": "subjectToCompletion", "valueBoolean": false },
+          { "key": "subjectToRepairs", "valueBoolean": false },
+          { "key": "conditions", "valueString": "" }
+        ] },
+        { "key": "appraiser", "valueMap": [
+          { "key": "name", "valueString": "" },
+          { "key": "company", "valueString": "" },
+          { "key": "address", "valueString": "" },
+          { "key": "phone", "valueString": "" },
+          { "key": "email", "valueString": "" },
+          { "key": "licenseNumber", "valueString": "" },
+          { "key": "licenseState", "valueString": "" },
+          { "key": "licenseExpiration", "valueString": "" },
+          { "key": "didInspect", "valueBoolean": true },
+          { "key": "didNotInspect", "valueBoolean": false },
+          { "key": "signatureDate", "valueString": "" }
+        ] }
+      ]
+    }
+  }
+]
